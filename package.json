@@ -1,0 +1,21 @@
+{
+    "name": "file-system",
+    "version": "1.0.0",
+    "type": "module",
+    "source": "src/index.js",
+    "main": "dist/index.js",
+    "module": "dist/index.module.js",
+    "unpkg": "dist/index.umd.js",
+    "scripts": {
+        "build": "microbundle",
+        "dev": "microbundle watch"
+    },
+    "author": "fernando.n.oviedo@gmail.com",
+    "devDependencies": {
+        "microbundle": "^0.15.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/femakin01/CapitalizeFirstLetterofaString.git"
+    }
+}
