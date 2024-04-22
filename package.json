@@ -1,21 +1,71 @@
 {
     "name": "apunto-file-viewer",
-    "version": "1.0.0",
-    "type": "module",
-    "source": "src/index.js",
-    "main": "dist/index.js",
-    "module": "dist/index.module.js",
-    "unpkg": "dist/index.umd.js",
-    "scripts": {
-        "build": "microbundle",
-        "dev": "microbundle watch"
-    },
+    "version": "1.0.1",
     "author": "fernando.n.oviedo@gmail.com",
+    "type": "module",
+    "license": "ISC",
+    "unpkg": "dist/index.umd.js",
+    "main": "dist/index.cjs.js",
+    "module": "dist/index.es.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "/dist"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        }
+    },
+    "scripts": {
+        "clean": "rimraf dist",
+        "prebuild": "npm run clean",
+        "build": "tsc && vite build",
+        "preversion": "npm run build",
+        "version": "npm publish",
+        "format": "prettier --write --parser typescript '**/*.{ts,tsx}'",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build",
+        "lint": "eslint . --ext .ts,.tsx --ignore-path .gitignore --fix"
+    },
     "devDependencies": {
-        "microbundle": "^0.15.1"
+        "@chromatic-com/storybook": "^1.3.1",
+        "@storybook/addon-essentials": "^8.0.6",
+        "@storybook/addon-interactions": "^8.0.6",
+        "@storybook/addon-links": "^8.0.6",
+        "@storybook/addon-onboarding": "^8.0.6",
+        "@storybook/blocks": "^8.0.6",
+        "@storybook/react": "^8.0.6",
+        "@storybook/react-vite": "^8.0.6",
+        "@storybook/test": "^8.0.6",
+        "@types/react": "^18.2.74",
+        "@typescript-eslint/eslint-plugin": "^7.5.0",
+        "@typescript-eslint/parser": "^7.5.0",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.1.3",
+        "eslint-plugin-react": "^7.34.1",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-storybook": "^0.8.0",
+        "react": "^18.2.0",
+        "storybook": "^8.0.6",
+        "typescript": "^5.4.4",
+        "vite": "^5.2.8",
+        "vite-plugin-dts": "^3.8.1"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/oviedo97fer/apunto-file-viewer.git"
+    },
+    "peerDependencies": {
+        "react": "^18.2.0"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.11.4",
+        "@emotion/styled": "^11.11.5",
+        "@mui/icons-material": "^5.15.15",
+        "@mui/material": "^5.15.15",
+        "@react-hook/resize-observer": "^1.2.6",
+        "react-pdf": "^7.7.1"
     }
 }
